@@ -33,10 +33,18 @@ export default function Projects() {
     <div className={styles.grid}>
       {projects.map((project) => (
         <div key={project.name} className={styles.card}>
+            <img src="/orbit.svg"/>
           <h3><a href="#project-name" aria-hidden="true" id="project-name"></a>{project.name}</h3>
           <p>
-            {project.description.json.content[0].content[0].value} - {project.capacity}
+            {project.description.json.content[0].content[0].value} 
           </p>
+          <p>{project.capacity}</p>
+          <div className={[styles.fire, styles.small].join(' ')}>
+            <img className={styles.fireCentre} src="https://media.giphy.com/media/VIE8BijRkECoGB9vuM/giphy.gif"></img>
+            <img className={styles.fireLeft} src="https://media.giphy.com/media/VIE8BijRkECoGB9vuM/giphy.gif"></img>
+            <img className={styles.fireRight} src="https://media.giphy.com/media/VIE8BijRkECoGB9vuM/giphy.gif"></img>
+           <p>1111000</p>
+          </div>
         </div>
       ))}
     </div>
