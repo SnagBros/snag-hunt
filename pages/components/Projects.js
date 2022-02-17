@@ -58,7 +58,11 @@ export default function Projects() {
     <div className={styles.grid}>
       {projects.map((project) => (
         <div key={project.name} className={styles.card}>
-          <img src="/orbit.svg" />
+          {/* <img src="/orbit.svg" /> */}
+          <div className={styles.projectLogo}>
+            <img src={project.logo.url}/>
+          </div>
+
           <h3>
             <a href="#project-name" aria-hidden="true" id="project-name"></a>
             {project.name}  /  Progress {project.progress}
