@@ -5,6 +5,7 @@ import ClientOnly from './components/ClientOnly'
 import Projects from './components/Projects'
 import Button from 'react-bootstrap/Button';
 import {Col, Container, Row} from "react-bootstrap";
+import TimeLeft from "./components/TimeLeft";
 
 export default function Home() {
   return (
@@ -20,11 +21,11 @@ export default function Home() {
                 integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
                 crossOrigin="anonymous"
             />
-
         </Head>
     <body>
     <Container>
         <ClientOnly>
+            <TimeLeft/>
             <Projects/>
         </ClientOnly>
     </Container>

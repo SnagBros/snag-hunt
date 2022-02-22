@@ -1,6 +1,7 @@
 import { useQuery, gql } from "@apollo/client";
 import styles from "../../styles/Home.module.css";
-import {Col, Row} from "react-bootstrap";
+import {Card, Col, Row} from "react-bootstrap";
+import Button from "react-bootstrap/Button";
 
 const QUERY = gql`
   query {
@@ -57,9 +58,31 @@ export default function Projects() {
 
   return (
       <Row>
-        <Col xs={12} style={{backgroundColor: "red"}}>
 
-        </Col>
+        <Row>
+          {projects.map((project) => (
+              <>
+                <Col sm={3}>
+                  <Card style={{ width: '18rem' }}>
+                    <div style={{width:"100%", height:180, backgroundColor:"red"}}>
+                      Logo goes here
+                    </div>
+                    <Card.Body>
+                      <Card.Title>{project.name} </Card.Title>
+                      <Card.Text>
+                          {project.description.json.content[0].content[0].value}
+                      </Card.Text>
+                      <Card.Text>
+                        Team members: daniel brazil, Jay Liu
+                      </Card.Text>
+                      <Button variant="primary">Join</Button>
+                    </Card.Body>
+                  </Card>
+
+                </Col>
+              </>
+            ))}
+        </Row>
       </Row>
   );
 }
