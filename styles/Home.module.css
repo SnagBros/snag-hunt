@@ -160,3 +160,36 @@
     height: 70%;
     z-index: 4;
 }
+.cardColumns{
+
+}
+@media (min-width:356px) {
+    .cardColumns {
+        column-count: 1;
+    }
+}
+
+@media (min-width:576px) {
+    .cardColumns {
+        column-count: 1;
+    }
+}
+@media (min-width:768px) {
+    .cardColumns {
+        column-count: 2;
+    }
+}
+@media (min-width:992px) {
+    .cardColumns {
+        column-count: 3;
+    }
+}
+@media (min-width:1200px) {
+    .cardColumns {
+        column-count: 3;
+    }
+}
+
+.card{
+    break-inside: avoid-column;
+}

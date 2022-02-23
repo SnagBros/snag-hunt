@@ -60,17 +60,17 @@ export default function Projects() {
       <Row>
 
         <Row>
-          {projects.map((project) => (
+
+            {projects.map((project) => (
               <>
-                <Col sm={3}>
-                  <Card style={{ width: '18rem' }}>
+                  <Card className={styles.card} style={{ width: '18rem' }}>
                     <div style={{width:"100%", height:180, backgroundColor:"red"}}>
                       Logo goes here
                     </div>
                     <Card.Body>
                       <Card.Title>{project.name} </Card.Title>
-                      <Card.Text>
-                          {project.description.json.content[0].content[0].value}
+                      <Card.Text >
+                          {project.description?.json.content[0].content[0].value}
                       </Card.Text>
                       <Card.Text>
                         Team members: daniel brazil, Jay Liu
@@ -79,9 +79,9 @@ export default function Projects() {
                     </Card.Body>
                   </Card>
 
-                </Col>
               </>
             ))}
+
         </Row>
       </Row>
   );
