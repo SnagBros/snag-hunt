@@ -64,13 +64,13 @@ export default function Projects() {
               <>
                 <Col sm={3}>
                   <Card style={{ width: '18rem' }}>
-                    <div style={{width:"100%", height:180, backgroundColor:"red"}}>
-                      Logo goes here
+                    <div style={{width:"100%", height:180}}>
+                      <img style={{width:"100%", height:"100%"}} src={project.logo ? project.logo.url : '/orbit.svg'}/>
                     </div>
                     <Card.Body>
                       <Card.Title>{project.name} </Card.Title>
                       <Card.Text>
-                          {project.description.json.content[0].content[0].value}
+                          {project.description?.json.content[0].content[0].value}
                       </Card.Text>
                       <Card.Text>
                         Team members: daniel brazil, Jay Liu
