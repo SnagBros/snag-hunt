@@ -1,5 +1,7 @@
 import { useQuery, gql } from "@apollo/client";
 import styles from "../../styles/Home.module.css";
+import {Card, Col, Row} from "react-bootstrap";
+import Button from "react-bootstrap/Button";
 
 const QUERY = gql`
   query {
@@ -55,37 +57,32 @@ export default function Projects() {
   const projects = data.projectCollection.items;
 
   return (
-    <div className={styles.grid}>
-      {projects.map((project) => (
-        <div key={project.name} className={styles.card}>
-          {/* <img src="/orbit.svg" /> */}
-          <div className={styles.projectLogo}>
-            <img src={project.logo.url}/>
-          </div>
+      <Row>
 
-          <h3>
-            <a href="#project-name" aria-hidden="true" id="project-name"></a>
-            {project.name}  /  Progress {project.progress}
-          </h3>
-          <p>{project.description.json.content[0].content[0].value}</p>
-          <p>{project.participantsCollection.items.length} / {project.capacity}</p>
-          <div className={[styles.fire, styles.small].join(" ")}>
-            <img
-              className={styles.fireCentre}
-              src="https://media.giphy.com/media/VIE8BijRkECoGB9vuM/giphy.gif"
-            ></img>
-            <img
-              className={styles.fireLeft}
-              src="https://media.giphy.com/media/VIE8BijRkECoGB9vuM/giphy.gif"
-            ></img>
-            <img
-              className={styles.fireRight}
-              src="https://media.giphy.com/media/VIE8BijRkECoGB9vuM/giphy.gif"
-            ></img>
-            <p>{project.popularity}</p>
-          </div>
-        </div>
-      ))}
-    </div>
+        <Row>
+          {projects.map((project) => (
+              <>
+                <Col sm={3}>
+                  <Card style={{ width: '18rem' }}>
+                    <div style={{width:"100%", height:180, backgroundColor:"red"}}>
+                      Logo goes here
+                    </div>
+                    <Card.Body>
+                      <Card.Title>{project.name} </Card.Title>
+                      <Card.Text>
+                          {project.description.json.content[0].content[0].value}
+                      </Card.Text>
+                      <Card.Text>
+                        Team members: daniel brazil, Jay Liu
+                      </Card.Text>
+                      <Button variant="primary">Join</Button>
+                    </Card.Body>
+                  </Card>
+
+                </Col>
+              </>
+            ))}
+        </Row>
+      </Row>
   );
 }
