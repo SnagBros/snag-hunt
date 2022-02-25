@@ -59,9 +59,9 @@ export default function Projects() {
 
   return (
     <>
+     <Row>
       {projects.map((project) => (
-          <Row key={project.name}>
-            <Col sm={3}>
+          <Col key={project.name} sm={3}>
               <Card style={{ width: '18rem' }}>
                 <div style={{width:"100%", height:180}}>
                   <img style={{width:"100%", height:"100%"}} src={project.logo ? project.logo.url : '/orbit.svg'}/>
@@ -78,9 +78,9 @@ export default function Projects() {
                   <Button variant="primary">Join</Button>
                 </Card.Body>
               </Card>
-            </Col>
-          </Row>
+          </Col>
        ))}
-      </>
+     </Row>
+    </>
   );
 }
