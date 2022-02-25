@@ -2,6 +2,7 @@ import { useQuery, gql } from "@apollo/client";
 import styles from "../../styles/Home.module.css";
 import {Card, Col, Row} from "react-bootstrap";
 import Button from "react-bootstrap/Button";
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 
 const QUERY = gql`
   query {
@@ -70,7 +71,7 @@ export default function Projects() {
                     <Card.Body>
                       <Card.Title>{project.name} </Card.Title>
                       <Card.Text>
-                          {project.description?.json.content[0].content[0].value}
+                          {documentToReactComponents(project.description?.json)}
                       </Card.Text>
                       <Card.Text>
                         Team members: daniel brazil, Jay Liu
