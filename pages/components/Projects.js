@@ -2,6 +2,7 @@ import { useQuery, gql } from "@apollo/client";
 import styles from "../../styles/Home.module.css";
 import {Card, Col, Row} from "react-bootstrap";
 import Button from "react-bootstrap/Button";
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import ProjectPopularity from "./ProjectPopularity";
 
 const QUERY = gql`
@@ -68,8 +69,8 @@ export default function Projects() {
                 </div>
                 <Card.Body>
                   <Card.Title>{project.name} </Card.Title>
-                  <Card.Text>
-                      {project.description?.json.content[0].content[0].value}
+                  <Card.Text as="div">
+                      {documentToReactComponents(project.description?.json)}
                   </Card.Text>
                   <Card.Text>
                       {project.participantsCollection.items.length} / {project.capacity}
