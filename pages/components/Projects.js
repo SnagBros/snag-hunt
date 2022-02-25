@@ -66,7 +66,7 @@ export default function Projects() {
             {projects.map((project) => (
               <>
                 <div  key={project.name}  className="col mb-4">
-                  <Card d style={{ width: '18rem' }}>
+                  <Card>
                       <div style={{width:"100%", height:180}}>
                           <img style={{width:"100%", height:"100%"}} src={project.logo ? project.logo.url : '/orbit.svg'}/>
                       </div>
@@ -78,7 +78,7 @@ export default function Projects() {
                       <Card.Text>
                       {project.participantsCollection.items.length} / {project.capacity}
                       </Card.Text>
-                  <ProjectPopularity popularity={project.popularity}></ProjectPopularity>
+                      <ProjectPopularity popularity={project.popularity}></ProjectPopularity>
                       <Button variant="primary">Join</Button>
                     </Card.Body>
                   </Card>
