@@ -64,9 +64,9 @@ export default function Projects() {
             {projects.map((project) => (
               <>
                   <Card className={styles.card} style={{ width: '18rem' }}>
-                    <div style={{width:"100%", height:180, backgroundColor:"red"}}>
-                      Logo goes here
-                    </div>
+                      <div style={{width:"100%", height:180}}>
+                          <img style={{width:"100%", height:"100%"}} src={project.logo ? project.logo.url : '/orbit.svg'}/>
+                      </div>
                     <Card.Body>
                       <Card.Title>{project.name} </Card.Title>
                       <Card.Text >
