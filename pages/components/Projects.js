@@ -57,13 +57,14 @@ export default function Projects() {
   const projects = data.projectCollection.items;
 
   return (
-      <Row>
 
-        <Row>
+
+          <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5">
 
             {projects.map((project) => (
               <>
-                  <Card className={styles.card} style={{ width: '18rem' }}>
+                <div className="col mb-4">
+                  <Card className={styles.card}>
                       <div style={{width:"100%", height:180}}>
                           <img style={{width:"100%", height:"100%"}} src={project.logo ? project.logo.url : '/orbit.svg'}/>
                       </div>
@@ -78,11 +79,11 @@ export default function Projects() {
                       <Button variant="primary">Join</Button>
                     </Card.Body>
                   </Card>
-
+                </div>
               </>
             ))}
 
-        </Row>
-      </Row>
+          </div>
+
   );
 }
