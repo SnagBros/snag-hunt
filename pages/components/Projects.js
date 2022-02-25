@@ -2,6 +2,8 @@ import { useQuery, gql } from "@apollo/client";
 import styles from "../../styles/Home.module.css";
 import {Card, Col, Row} from "react-bootstrap";
 import Button from "react-bootstrap/Button";
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
+import ProjectPopularity from "./ProjectPopularity";
 
 const QUERY = gql`
   query {
@@ -63,19 +65,20 @@ export default function Projects() {
 
             {projects.map((project) => (
               <>
-                <div className="col mb-4">
-                  <Card className={styles.card}>
+                <div  key={project.name}  className="col mb-4">
+                  <Card d style={{ width: '18rem' }}>
                       <div style={{width:"100%", height:180}}>
                           <img style={{width:"100%", height:"100%"}} src={project.logo ? project.logo.url : '/orbit.svg'}/>
                       </div>
                     <Card.Body>
                       <Card.Title>{project.name} </Card.Title>
-                      <Card.Text >
-                          {project.description?.json.content[0].content[0].value}
+                      <Card.Text as="div">
+                      {documentToReactComponents(project.description?.json)}
                       </Card.Text>
                       <Card.Text>
-                        Team members: daniel brazil, Jay Liu
+                      {project.participantsCollection.items.length} / {project.capacity}
                       </Card.Text>
+                  <ProjectPopularity popularity={project.popularity}></ProjectPopularity>
                       <Button variant="primary">Join</Button>
                     </Card.Body>
                   </Card>
