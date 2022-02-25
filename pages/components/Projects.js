@@ -74,7 +74,7 @@ export default function Projects() {
                           {documentToReactComponents(project.description?.json)}
                       </Card.Text>
                       <Card.Text>
-                        Team members: daniel brazil, Jay Liu
+                          <p>{project.participantsCollection.items.length} / {project.capacity}</p>
                       </Card.Text>
                       <Button variant="primary">Join</Button>
                     </Card.Body>
