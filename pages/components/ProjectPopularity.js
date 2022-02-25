@@ -20,14 +20,16 @@ export default function ProjectPopularity(props) {
 
   return (
     <>
-    <div className={fireSize}>
-        <img
-          onClick={() => imageClick()}
-          className={styles.fireCentre}
-          src="https://media.giphy.com/media/VIE8BijRkECoGB9vuM/giphy.gif"
-        ></img>
-    </div>
-    <p>{count}</p>
+     <div className={styles.fireContainer}>
+      <div className={fireSize}>
+          <img
+            onClick={() => imageClick()}
+            className={styles.fireCentre}
+            src="https://media.giphy.com/media/VIE8BijRkECoGB9vuM/giphy.gif"
+          ></img>
+      </div>
+      <p className={styles.fireCount}>{count}</p>
+     </div>
     </>
   );
 }

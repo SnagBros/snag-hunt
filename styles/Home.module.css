@@ -14,12 +14,27 @@
   height: 70px;
 }
 
+.fireContainer{
+  float: right;
+  display: inline-block;
+  padding-right: 10px;
+}
+
 .fire {
    position: relative;
+   display: inline-block;
 }
 
 .fire img {
    position: absolute;
+}
+
+.fireCount{
+  display: inline-block;
+  margin: auto;
+  top:-5px;
+  left: 5px;
+  position: relative;
 }
 
 .fireCentre{

@@ -66,21 +66,27 @@ export default function Projects() {
             {projects.map((project) => (
               <>
                 <div  key={project.name}  className="col mb-4">
-                  <Card>
-                      <div style={{width:"100%", height:180}}>
-                          <img style={{width:"100%", height:"100%"}} src={project.logo ? project.logo.url : '/orbit.svg'}/>
-                      </div>
+                  <Card style={{height: 700, width: 250}}>
+                    <Card.Img style={{height:180}} variant="top" src={project.logo ? project.logo.url : '/orbit.svg'}/>
                     <Card.Body>
-                      <Card.Title>{project.name} </Card.Title>
-                      <Card.Text as="div">
-                      {documentToReactComponents(project.description?.json)}
+                      <Card.Title>{project.name}</Card.Title>
+                      <Card.Text as="div" style={{height: 200}}>
+                        {documentToReactComponents(project.description?.json)}
                       </Card.Text>
-                      <Card.Text>
-                      {project.participantsCollection.items.length} / {project.capacity}
-                      </Card.Text>
-                      <ProjectPopularity popularity={project.popularity}></ProjectPopularity>
-                      <Button variant="primary">Join</Button>
                     </Card.Body>
+
+                    <Row>
+                      <Col><Card.Text style={{width:70, display:"inline-block", paddingLeft:10}}>
+                        {project.participantsCollection.items.length} / {project.capacity}
+                      </Card.Text></Col>
+                      <Col>
+                      <ProjectPopularity popularity={project.popularity}></ProjectPopularity>
+                      </Col>
+                    </Row>
+    
+                    <Card.Footer>
+                      <Button style={{width:"100%", margin:"10px"}} variant="primary">Join</Button>
+                    </Card.Footer>
                   </Card>
                 </div>
               </>
