@@ -70,7 +70,7 @@ export default function Projects() {
                     </div>
                     <Card.Body>
                       <Card.Title>{project.name} </Card.Title>
-                      <Card.Text>
+                      <Card.Text as="div">
                           {documentToReactComponents(project.description?.json)}
                       </Card.Text>
                       <Card.Text>
