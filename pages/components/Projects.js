@@ -73,7 +73,7 @@ export default function Projects() {
                           {project.description?.json.content[0].content[0].value}
                       </Card.Text>
                       <Card.Text>
-                        Team members: daniel brazil, Jay Liu
+                          <p>{project.participantsCollection.items.length} / {project.capacity}</p>
                       </Card.Text>
                       <Button variant="primary">Join</Button>
                     </Card.Body>
